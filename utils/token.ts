@@ -1,6 +1,7 @@
 import Cookies from "js-cookie";
 
-export async function getAccessToken() {
+
+export function getAccessToken(): string | undefined {
   return Cookies.get("accessToken");
 }
 

@@ -26,7 +26,7 @@ export function useAuth(requireAdmin: boolean = false): UseAuthReturn {
 
   const checkAuth = useCallback(async (): Promise<boolean> => {
     try {
-      const token =  await getAccessToken();
+      const token =  getAccessToken();
 
       if (!token) {
         setState({ user: null, isAuthenticated: false, isLoading: false });
@@ -93,7 +93,7 @@ export function useAuth(requireAdmin: boolean = false): UseAuthReturn {
  * NOTE: This is for client-side role checking only
  * Actual verification happens on the server
  */
-function decodeToken(token:any): { 
+function decodeToken(token: string): { 
   sub?: string; 
   username?: string; 
   email?: string; 
