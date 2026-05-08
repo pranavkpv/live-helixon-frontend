@@ -93,7 +93,7 @@ export function useAuth(requireAdmin: boolean = false): UseAuthReturn {
  * NOTE: This is for client-side role checking only
  * Actual verification happens on the server
  */
-function decodeToken(token: string): { 
+function decodeToken(token: string | undefined): { 
   sub?: string; 
   username?: string; 
   email?: string; 
@@ -101,6 +101,7 @@ function decodeToken(token: string): {
   exp?: number;
 } | null {
   try {
+    if(!token)return null
     const base64Url = token.split('.')[1];
     if (!base64Url) return null;
     
