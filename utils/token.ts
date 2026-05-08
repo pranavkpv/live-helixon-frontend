@@ -1,22 +1,14 @@
-"use server"
-import { cookies } from "next/headers";
+import Cookies from "js-cookie";
 
-export async function getAccessToken() {
-  const cookieStore = cookies();
-
-  const token =
-    cookieStore.get("accessToken")?.value;
-
-  return token;
+export function getAccessToken() {
+  return Cookies.get("accessToken");
 }
 
 /**
  * ✅ Remove access token (logout)
  */
-export async function removeAccessToken() {
-  const cookieStore = cookies();
-
-  cookieStore.delete("accessToken");
+export function removeAccessToken() {
+  Cookies.remove("accessToken");
 }
 
 /**
