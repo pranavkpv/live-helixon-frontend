@@ -105,26 +105,28 @@ export default function StepPreview({ users, fileName, onNext, onBack }: StepPre
               return (
                 <tr
                   key={user._rowId}
-                  className={`border-b border-white/[0.03] transition-colors hover:bg-white/[0.02] ${
-                    hasErrors ? 'bg-accentRed/[0.03]' : ''
-                  }`}
+                  className={`border-b border-white/[0.03] transition-colors hover:bg-white/[0.02] ${ hasErrors ? 'bg-accentRed/[0.03]' : ''
+                    }`}
                 >
                   <td className="px-6 py-3">
                     <span className="text-xs text-white/20 font-mono">{idx + 1}</span>
                   </td>
                   <td className="px-6 py-3">
-                    <span className={`text-xs ${user.errors?.username ? 'text-accentRed' : 'text-white/80'}`}>
+                    <span className={`text-xs ${ user.errors?.username ? 'text-accentRed' : 'text-white/80' }`}>
                       {user.username || <span className="text-white/20 italic">empty</span>}
                     </span>
                   </td>
                   <td className="px-6 py-3">
-                    <span className={`text-xs font-mono ${user.errors?.email ? 'text-accentRed' : 'text-white/60'}`}>
+                    <span className={`text-xs font-mono ${ user.errors?.email ? 'text-accentRed' : 'text-white/60' }`}>
                       {user.email || <span className="text-white/20 italic">empty</span>}
                     </span>
                   </td>
                   <td className="px-6 py-3">
-                    <span className={`text-xs font-mono ${user.errors?.password ? 'text-accentRed' : 'text-white/40'}`}>
-                      {'•'.repeat(Math.min(user.password.length, 12))}
+                    <span
+                      className={`text-xs font-mono ${ user.errors?.password ? 'text-accentRed' : 'text-white/40'
+                        }`}
+                    >
+                      {'•'.repeat(Math.min(user.password?.length || 0, 12))}
                     </span>
                   </td>
                   <td className="px-6 py-3">
