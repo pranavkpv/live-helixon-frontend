@@ -1,13 +1,13 @@
 import Cookies from "js-cookie";
 
-export function getAccessToken() {
+export async function getAccessToken() {
   return Cookies.get("accessToken");
 }
 
 /**
  * ✅ Remove access token (logout)
  */
-export function removeAccessToken() {
+export async function removeAccessToken() {
   Cookies.remove("accessToken");
 }
 

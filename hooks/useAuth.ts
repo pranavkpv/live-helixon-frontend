@@ -26,7 +26,7 @@ export function useAuth(requireAdmin: boolean = false): UseAuthReturn {
 
   const checkAuth = useCallback(async (): Promise<boolean> => {
     try {
-      const token =  getAccessToken();
+      const token =  await getAccessToken();
 
       if (!token) {
         setState({ user: null, isAuthenticated: false, isLoading: false });
