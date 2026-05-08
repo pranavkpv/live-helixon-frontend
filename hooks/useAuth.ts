@@ -93,7 +93,7 @@ export function useAuth(requireAdmin: boolean = false): UseAuthReturn {
  * NOTE: This is for client-side role checking only
  * Actual verification happens on the server
  */
-function decodeToken(token: string): { 
+function decodeToken(token:any): { 
   sub?: string; 
   username?: string; 
   email?: string; 
