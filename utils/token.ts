@@ -4,6 +4,14 @@ export function getAccessToken(): string | undefined {
   return Cookies.get("accessToken");
 }
 
+export function setAccessToken(token: string): void {
+  Cookies.set("accessToken", token, {
+    expires: 1,
+    secure: true,
+    sameSite: "strict",
+  });
+}
+
 export function removeAccessToken(): void {
   Cookies.remove("accessToken");
 }

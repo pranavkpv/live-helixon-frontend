@@ -10,7 +10,7 @@ import { SIGNIN_CONTENT } from '@/constants/content';
 import { ROUTES, USER_ROLES } from '@/constants/navigation';
 import InputField from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { decodeJwtPayload, getAccessToken } from '@/utils/token';
+import { decodeJwtPayload, getAccessToken, setAccessToken } from '@/utils/token';
 import { useState } from 'react';
 
 
@@ -83,7 +83,8 @@ function RightPanel() {
 
       if (res.data.success) {
         setAllowSave(true)
-        const token = await getAccessToken();
+        const token = res.data.accessToken
+        setAccessToken(token)
 
         if (!token) {
           setFormError("Authentication failed");
